@@ -1,0 +1,32 @@
+
+
+  <sui-modal [isClosable]="true" #contentFeedbackModal class="">
+      <div class="header">
+        <div class="ui grid">
+          <div class="eleven wide column">
+            <span class="ui header">Enjoyed this content</span>
+          </div>
+          <div class="one wide column actions">
+            <h5 class="ui basic icon circular button deny" (click)="closeModal(contentFeedbackModal);">
+              <i class="ui remove icon"></i>
+            </h5>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+          <div class="ui form">
+              <div class="field">
+                <!-- <label></label> -->
+                <h5>Help us by rating</h5>
+              </div>
+              <div class="field">
+                  <sui-rating class="courseHeader-rating ui star rating" [(ngModel)]="rating" [maximum]="5"></sui-rating>
+              </div>
+              <div class="field">
+                  <textarea rows="2"  [(ngModel)]="comments" ></textarea>
+              </div>
+              <button  class="ui button" type="submit"  (click)="sendFeedback(contentFeedbackModal, true);">Submit</button>
+            </div>
+          <br/>
+      </div>           
+    </sui-modal>

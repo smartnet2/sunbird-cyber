@@ -1,0 +1,15 @@
+fieldset {
+    border: none !important;
+}
+
+.form-control {
+    font-size: 13px !important;
+}
+
+#main {
+    background-color: #ffffff;
+}
+
+.field>label {
+    font-weight: none !important;
+}

@@ -1,0 +1,11 @@
+.hidden-section {
+    display: none;
+}
+
+
+@media (max-width: 768px) {
+
+a.navbar-brand.js-scroll-trigger {
+    width: 248px!important;
+}
+}

@@ -1,0 +1,27 @@
+<div class="col-md-12 ml-4" *ngFor="let firstLevelReply of replyList;" style="line-height:25px">
+    <strong>{{firstLevelReply.name}}</strong>
+    <!-- <P *ngIf="!parseBody(reply.body)">{{reply.body}}</P> -->
+    <div class="pr-5" *ngIf="!parseBody(firstLevelReply.body)">{{firstLevelReply.body}}</div>
+    <div class="pr-5" [innerHTML]="firstLevelReply.body" *ngIf="parseBody(firstLevelReply.body)">
+    </div>
+    <div class="text-primary cursor_pointer" (click)=getPostNumber(firstLevelReply.post_number);>
+        <i class="fa fa-reply" aria-hidden="true"></i>&nbsp;&nbsp;Reply
+    </div>
+    <div *ngIf="firstLevelReply.replies.length > 0">
+        <div class="col-md-12 ml-4" *ngFor="let secondLevelReply of firstLevelReply.replies;" style="line-height:25px">
+            <strong>{{secondLevelReply.name}}</strong>
+            <!-- <P *ngIf="!parseBody(reply.body)">{{reply.body}}</P> -->
+            <div class="pr-5" *ngIf="!parseBody(secondLevelReply.body)">{{secondLevelReply.body}}</div>
+            <div class="pr-5" [innerHTML]="secondLevelReply.body" *ngIf="parseBody(secondLevelReply.body)">
+            </div>
+            <div class="text-primary cursor_pointer" (click)=getPostNumber(secondLevelReply.post_number);>
+                <i class="fa fa-reply" aria-hidden="true"></i>&nbsp;&nbsp;Reply
+            </div>
+            <div *ngIf="secondLevelReply.replies.length > 0">
+                <tree-view [replyList]="secondLevelReply.replies"></tree-view>
+            </div>
+            <!-- <div style="margin:10px 0;" class="ui section divider"></div> -->
+        </div>
+    </div>
+    <!-- <div style="margin:10px 0;" class="ui section divider"></div> -->
+</div>

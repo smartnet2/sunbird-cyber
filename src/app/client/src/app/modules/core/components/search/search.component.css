@@ -1,0 +1,9 @@
+.disableIcon {
+    pointer-events: none;
+    opacity: 0.45;
+}
+/* #NUIH changes for styles*/
+sui-select-option{
+    font-family: "Raleway", sans-serif !important;
+}
+/* #NUIH changes for styles*/

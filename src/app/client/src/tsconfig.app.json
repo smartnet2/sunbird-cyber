@@ -1,0 +1,74 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/app",
+    "experimentalDecorators": true,
+    "baseUrl": "./",
+    "paths": {
+      "@sunbird/core": [
+        "app/modules/core"
+      ],
+      "@sunbird/community": [
+        "app/modules/community"
+      ],
+      "@sunbird/shared": [
+        "app/modules/shared"
+      ],
+      "@sunbird/home": [
+        "app/modules/home"
+      ],
+      "@sunbird/dashboard": [
+        "app/modules/dashboard"
+      ],
+      "@sunbird/announcement": [
+        "app/modules/announcement"
+      ],
+      "@sunbird/notes": [
+        "app/modules/notes"
+      ],
+      "@sunbird/admin": [
+        "app/modules/admin"
+      ],
+      "@sunbird/resource": [
+        "app/modules/resource"
+      ],
+      "@sunbird/learn": [
+        "app/modules/learn"
+      ],
+      "@sunbird/workspace": [
+        "app/modules/workspace"
+      ],
+      "@sunbird/org-management": [
+        "app/modules/org-management"
+      ],
+      "@sunbird/public": [
+        "app/modules/public"
+      ],
+      "@sunbird/profile": [
+        "app/plugins/profile"
+      ],
+      "@sunbird/search": [
+        "app/modules/search"
+      ],
+      "@sunbird/discussion": [
+        "app/modules/discussion"
+      ],
+      "@sunbird/telemetry": [
+        "app/modules/telemetry"
+      ],  
+      "@sunbird/badge": [
+        "app/modules/badging"
+      ],
+      "@sunbird/environment": [
+        "environments/environment"
+      ]
+    },
+    "module": "es2015",
+    "types": []
+  },
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts",
+    "**/*.spec.data.ts"
+  ]
+}

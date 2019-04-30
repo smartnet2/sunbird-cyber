@@ -1,0 +1,22 @@
+<div class="ui link popular-section">
+    <h4 class="ui header card-section-header sectionHeading">IMAGE &amp; VIDEO GALLERY</h4>
+    <span>
+        Ministry of Housing and Urban affairs launched SmartNet on 25th June 2016. SmartNet is an initiative of the
+        Ministry of Housing and Urban Affairs to support the development of cities across India and to create a
+        resource-rich ecosystem of learning, sharing and disseminating for city managers and primary stakeholders in
+        the urban transformation of India. SmartNet encourages Government to Government (G-to-G) and Government to
+        Business (G-to-B) and Business to Government (B-to-G) linkages for the urban sector in India enabling
+        transparent and structured interactions between cities, businesses and institutions. SmartNet is currently
+        managed by National Institute of Urban Affairs (NIUA).
+    </span>
+    <br/>
+    <br/>
+    <div>
+        <ngx-slick in-view-container [throttle]="[1000]" [trigger]="slides" (afterChange)="inviewChange(slides,$event)"
+            class="carousel" #slickModal="slick-modal" [config]="slideConfig">
+            <div in-view-item [id]="i" [data]="slide" ngxSlickItem *ngFor="let slide of slides;let i = index" class="slide">
+                <img src="{{ slide.img }}" alt="" width="100%">
+            </div>
+        </ngx-slick>
+    </div>
+</div>

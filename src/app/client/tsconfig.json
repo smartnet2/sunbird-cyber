@@ -1,0 +1,81 @@
+{
+  "compileOnSave": false,
+  "angularCompilerOptions": {
+    "genDir": "aot",
+    "debug": true
+  },
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "paths": {
+      "@sunbird/core": [
+        "src/app/modules/core"
+      ],
+      "@sunbird/community": [
+        "src/app/modules/community"
+      ],
+      "@sunbird/shared": [
+        "app/modules/shared"
+      ],
+      "@sunbird/home": [
+        "app/modules/home"
+      ],
+      "@sunbird/dashboard": [
+        "app/modules/dashboard"
+      ],
+      "@sunbird/announcement": [
+        "app/modules/announcement"
+      ],
+      "@sunbird/notes": [
+        "app/modules/notes"
+      ],
+      "@sunbird/resource": [
+        "app/modules/resource"
+      ],
+      "@sunbird/learn": [
+        "app/modules/learn"
+      ],
+      "@sunbird/org-management": [
+        "app/modules/org-management"
+      ],
+      "@sunbird/search": [
+        "app/modules/search"
+      ],
+      "@sunbird/profile": [
+        "app/plugins/profile"
+      ],
+      "@sunbird/discussion": [
+        "app/modules/discussion"
+      ],
+      "@sunbird/telemetry": [
+        "app/modules/telemetry"
+      ],
+      "@sunbird/public": [
+        "app/modules/public"
+      ],
+      "@sunbird/environment": [
+        "environments/environment"
+      ]
+    },
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2017",
+      "dom"
+    ]
+  },
+  "exclude": [
+    "**/*.spec.data.ts"
+  ],
+  "include":[
+    "./src",
+    "./node_modules/ngx-quill-editor/*"
+  ]
+}

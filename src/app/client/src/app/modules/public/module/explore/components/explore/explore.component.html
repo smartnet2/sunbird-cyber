@@ -1,0 +1,70 @@
+<div [appTelemetryImpression]="telemetryImpression" class="ui grid">
+  <div class="one wide column"></div>
+  <div class="ten wide column">
+    <br />
+    <br />
+    <div class="container1">
+      <h1 class="p-text">Learning Platform</h1>
+      <p class="h-text">Learning Platform will help in raising awareness, knowledge management and building skills.</p>
+    </div>
+    <br />
+    <br />
+    <div class="container">
+      <div class="col-full testimonials">
+        <div class="testimonials__slide top">
+          <img src="../../../../../../../assets/images/img-1.jpg" alt="Author image" class="testimonials__avatar">
+          <div class="testimonials__author">
+            About Learns
+          </div>
+          <p>Ministry of Housing and Urban affairs launched SmartNet on 25th June 2016. SmartNet is an initiative of
+            the Ministry of Housing and Urban Affairs to support the development of cities across India and to create a
+            resource-rich ecosystem of learning, sharing and disseminating for city managers and primary stakeholders
+            in the urban transformation of India. SmartNet encourages Government to Government (G-to-G) and Government
+            to Business (G-to-B) and Business to Government (B-to-G) linkages for the urban sector in India enabling
+            transparent and structured interactions between cities, businesses and institutions. SmartNet is currently
+            managed by National Institute of Urban Affairs (NIUA).</p>
+          <div class="testimonials__author">
+
+            <span class="know-more"><a href="#">/ Know more..</a></span>
+          </div>
+        </div> <!-- end testimonials__slide -->
+
+        <div class="testimonials__slide top">
+          <img src="../../../../../../../assets/images/img-2.jpg" alt="Author image" class="testimonials__avatar">
+          <div class="testimonials__author">
+            Take a Tour
+          </div>
+          <p>Smart City Mission Office intends to set up connect module to connect various stakeholders (namely
+            academia, researchers, state government, city administration, industry and startups) through interactive
+            platform which allows users to reach out and communicate with the targeted stakeholders audience.</p>
+          <div class="testimonials__author">
+
+            <span class="know-more"><a href="#">/ Know more..</a></span>
+          </div>
+        </div> <!-- end testimonials__slide -->
+      </div>
+    </div>
+    <div class="ui grid margin-bottom-0">
+      <div class="twelve wide column">
+        <app-prominent-filter appTelemetryInteract [telemetryInteractEdata]="filterIntractEdata" *ngIf="filterType"
+          [filterEnv]="filterType" [ignoreQuery]="['key', 'language']" [redirectUrl]="redirectUrl"
+          [accordionDefaultOpen]=true [isShowFilterLabel]=true [showSearchedParam]=true [isShowFilterLabel]=true
+          [hashTagId]="hashTagId"></app-prominent-filter>
+      </div>
+    </div>
+    <div *ngFor="let section of caraouselData">
+      <app-page-section (visits)="prepareVisits($event)" (playEvent)="playContent($event)" [section]="section"></app-page-section>
+    </div>
+    <div class="twelve wide column" *ngIf="showLoader">
+      <app-loader [data]='loaderMessage'></app-loader>
+    </div>
+    <div *ngIf="noResult && !showLoader">
+      <app-no-result [data]="noResultMessage"></app-no-result>
+    </div>
+    <div>
+      <app-page-footer></app-page-footer>
+    </div>
+  </div>
+  <div class="one wide column">
+  </div>
+</div>

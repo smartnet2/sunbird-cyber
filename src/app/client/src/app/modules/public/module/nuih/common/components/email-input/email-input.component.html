@@ -1,0 +1,14 @@
+<form name="emailForm" (ngSubmit)="postEmail(emailForm)" #emailForm="ngForm" novalidate>
+  <div class="input-group email">
+    <input type="email" class="form-control" placeholder="Enter email id" name="emailField" id="emailField"
+      [(ngModel)]="emailField" #emailInput="ngModel" required email
+      pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" autocomplete="off">
+    <div class="input-group-btn">
+      <button class="btn btn-primary email" type="submit">Submit</button>
+    </div>
+  </div>
+  <div *ngIf="emailForm.submitted && emailInput.invalid" class="text-danger text-left mt-2">
+    Please enter the valid email address...</div>
+  <div *ngIf="showstatusMessage" class="text-success text-left mt-2">
+    Your email is successfully submitted...</div>
+</form>

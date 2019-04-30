@@ -1,0 +1,15 @@
+<sui-modal [isClosable]="true" (dismissed)="redirect()" #modal>
+  <div class="header">{{resourceService?.frmelmnts?.lbl?.deletenote}}</div>
+  <div class="content">
+    <div *ngIf="!showLoader" class="description">
+      {{resourceService?.frmelmnts?.prmpt?.deletenote}}
+    </div>
+    <div *ngIf="showLoader">
+      <app-loader [data]="loaderMessage"></app-loader>
+    </div>
+  </div>
+  <div *ngIf="!showLoader" class="actions">
+    <div class="ui negative button" (click)="modal.deny();">{{resourceService?.frmelmnts?.btn?.no}}</div>
+    <div class="ui primary button " (click)="removeNote();">{{resourceService?.frmelmnts?.btn?.yes}}</div>
+  </div>
+</sui-modal>

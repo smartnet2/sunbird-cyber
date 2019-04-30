@@ -1,0 +1,11 @@
+.hidden-section {
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+.section-header.text-center {
+    display: inline-block;
+}
+
+}

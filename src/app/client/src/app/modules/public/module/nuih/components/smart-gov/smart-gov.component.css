@@ -1,0 +1,22 @@
+.hidden-section {
+    display: none;
+}
+
+
+@media (max-width: 768px) {
+	
+	.owl-stage-outer2{
+		
+		width:100%!important;
+		
+	}
+	
+	.owl-stage-outer2 ul{
+		
+		width:100%!important;
+		margin:0;
+		
+		
+	}
+	
+}

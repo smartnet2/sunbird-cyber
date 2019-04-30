@@ -1,0 +1,428 @@
+<div [appTelemetryImpression]="telemetryImpression">
+    <header id="header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+                <div class="container"> <a class="navbar-brand js-scroll-trigger" href="javascipt:"><img
+                            src="./assets/nuih/img/nuih-logo.jpg" width="100%" height="100%" alt=""></a>
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                        data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                        aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="/nuis">Home</a>
+                            </li>
+                            <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="/lms">Learn</a> </li>
+                            <li class="nav-item"> <a class="nav-link js-scroll-trigger nav-active"
+                                    href="/innovate">Innovate</a> </li>
+                            <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="/iudx">Data</a> </li>
+                            <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="/smartgov">Smart
+                                    Governance</a> </li>
+
+                            <li class="nav-item"> <a class="btn btn-primary" href="/challenge">Sign In/Up</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- #header -->
+
+    <!--==========================
+    Intro Section
+  ============================-->
+    <section id="innovate-banner">
+        <div class="innovate-content">
+            <div class="container text-center">
+                <h2>LET'S BRING POSITIVE CHANGE TOGETHER </h2>
+                <p>A platform that spurs innovation to create urban solutions at scale and speed<br>
+
+                    by providing opportunities to share and participate in various innovation challenges </p>
+            </div>
+        </div>
+        <div id="innovate-banner-caro" class=" ">
+            <div class="innovate-item" style="background-image: url('./assets/nuih/img/intro-carousel/Innovate.jpg');">
+            </div>
+        </div>
+    </section>
+    <!-- #intro -->
+
+    <main id="main">
+        <section id="testimonials" class="wow fadeInUp">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Let's Create Change</h2>
+                    <p class="text-center">You can innovate much faster when you’re building on the ideas of many. We
+                        call this open innovation. Here’s how you can try it out: </p>
+
+                </div>
+                <div class="owl-carousel testimonials-carousel">
+                    <div class="testimonial-item imc"> <img src="./assets/nuih/img/in-p.jpg" class="testimonial-img im"
+                            alt="" width="auto">
+                        <h3>Participate in <br>
+                            Challenges</h3>
+                        <p> Participate in "Innovation Challenges" and grow your professional network </p>
+                    </div>
+                    <div class="testimonial-item imc"> <img src="./assets/nuih/img/in-p2.jpg" class="testimonial-img im"
+                            alt="" width="auto">
+                        <h3>Build<br>
+                            Alliances</h3>
+                        <p> Connect with innovators in your city and nationwide </p>
+                    </div>
+                    <div class="testimonial-item imc"> <img src="./assets/nuih/img/in-p3.jpg" class="testimonial-img im"
+                            alt="" width="auto">
+                        <h3>Share your<br>
+                            Success</h3>
+                        <p> Share your innovation solution on the platform with NUIS community </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--==========================
+            Opportunity
+          ============================-->
+        <section id="about" class="wow fadeInUp">
+            <div class="container new-opportunity-container">
+                <div class="row">
+                    <div class="col-lg-2 content">
+                        <h2 class="border-btm">New<br>
+                            Opportunities</h2>
+                        <p>"Innovation Challenges" by the Smart City CEOs for organizations to offer their products and
+                            services </p>
+                        <div class="pull-left viewall"><a href="javascript:" (click)="redirectToUrl('comingsoon')"
+                                class="view">View All</a> <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="container">
+                            <div class="ui grid margin-bottom-0 hidden-section">
+                                <div class="twelve wide column">
+                                    <app-prominent-filter appTelemetryInteract
+                                        [telemetryInteractEdata]="filterIntractEdata" *ngIf="filterType"
+                                        [filterEnv]="filterType" [ignoreQuery]="['key', 'language']"
+                                        [redirectUrl]="redirectUrl" [accordionDefaultOpen]=true [isShowFilterLabel]=true
+                                        [showSearchedParam]=true [isShowFilterLabel]=true [hashTagId]="hashTagId">
+                                    </app-prominent-filter>
+                                </div>
+                            </div>
+
+                            <div *ngFor="let section of opportunitiesCarouselData">
+                                <app-page-section (visits)="prepareVisits($event)" (playEvent)="playContent($event)"
+                                    [section]="section"></app-page-section>
+                            </div>
+                            <div class="twelve wide column" *ngIf="showLoader">
+                                <app-loader [data]='loaderMessage'></app-loader>
+                            </div>
+                            <div *ngIf="noResult && !showLoader">
+                                <app-no-result [data]="noResultMessage"></app-no-result>
+                            </div>
+                            <!-- <div id="demo" class="carousel slide" data-ride="carousel">
+
+                                
+                                <ul class="carousel-indicators mb-0 pb-0">
+                                    <li data-target="#demo" data-slide-to="0" class="active"></li>
+                                    <li data-target="#demo" data-slide-to="1"></li>
+                                    <li data-target="#demo" data-slide-to="2"></li>
+                                </ul>
+
+                                
+                                <div class="carousel-inner no-padding ">
+                                    
+
+                                    <div class="carousel-item active">
+                                        <div class="col-xs-4 col-sm-4 col-md-4 pull-left">
+                                            <div class="small-bow"> <a href="#" onclick=abc(this) class="slider_info">
+                                                    <img class="img-fluid card-img-top"
+                                                        src="./assets/nuih/img/smart.jpg" width="305px"> </a>
+                                                <div class="silder-content oppor">
+                                                    <p><b>Light up the path</b></p>
+                                                    <p>Looking for innovation ides on solar lighting the streets of
+                                                        Nagoan Village...</p>
+                                                    <p class="bottom-text opport">20 Days to go<span
+                                                            class="pull-right paticipate">Participate</span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4 col-md-4 pull-left">
+                                            <div class="small-bow"> <a href="#" onclick=abc(this) class="slider_info">
+                                                    <img class="img-fluid card-img-top"
+                                                        src="./assets/nuih/img/smart2.jpg" width="305px"> </a>
+                                                <div class="silder-content oppor">
+                                                    <p><b>Light up the path</b></p>
+                                                    <p>Looking for innovation ides on solar lighting the streets of
+                                                        Nagoan Village...</p>
+                                                    <p class="bottom-text opport">20 Days to go<span
+                                                            class="pull-right paticipate">Participate</span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4 col-md-4 pull-left">
+                                            <div class="small-bow"> <a href="#" onclick=abc(this) class="slider_info">
+                                                    <img class="img-fluid card-img-top"
+                                                        src="./assets/nuih/img/smart3.jpg" width="305px"> </a>
+                                                <div class="silder-content oppor">
+                                                    <p><b>Light up the path</b></p>
+                                                    <p>Looking for innovation ides on solar lighting the streets of
+                                                        Nagoan Village...</p>
+                                                    <p class="bottom-text opport">20 Days to go<span
+                                                            class="pull-right paticipate">Participate</span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="col-xs-4 col-sm-4 col-md-4 pull-left">
+                                            <div class="small-bow"> <a href="#" onclick=abc(this) class="slider_info">
+                                                    <img class="img-fluid card-img-top"
+                                                        src="./assets/nuih/img/smart.jpg" width="305px"> </a>
+                                                <div class="silder-content oppor">
+                                                    <p><b>Light up the path</b></p>
+                                                    <p>Looking for innovation ides on solar lighting the streets of
+                                                        Nagoan Village...</p>
+                                                    <p class="bottom-text opport">20 Days to go<span
+                                                            class="pull-right paticipate">Participate</span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4 col-md-4 pull-left">
+                                            <div class="small-bow"> <a href="#" onclick=abc(this) class="slider_info">
+                                                    <img class="img-fluid card-img-top"
+                                                        src="./assets/nuih/img/smart2.jpg" width="305px"> </a>
+                                                <div class="silder-content oppor">
+                                                    <p><b>Light up the path</b></p>
+                                                    <p>Looking for innovation ides on solar lighting the streets of
+                                                        Nagoan Village...</p>
+                                                    <p class="bottom-text opport">20 Days to go<span
+                                                            class="pull-right paticipate">Participate</span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-4 col-sm-4 col-md-4 pull-left">
+                                            <div class="small-bow"> <a href="#" onclick=abc(this) class="slider_info">
+                                                    <img class="img-fluid card-img-top"
+                                                        src="./assets/nuih/img/smart3.jpg" width="305px"> </a>
+                                                <div class="silder-content oppor">
+                                                    <p><b>Light up the path</b></p>
+                                                    <p>Looking for innovation ides on solar lighting the streets of
+                                                        Nagoan Village...</p>
+                                                    <p class="bottom-text opport">20 Days to go<span
+                                                            class="pull-right paticipate">Participate</span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a class="carousel-control-prev" href="#demo" data-slide="prev"> <span
+                                            class="carousel-control-next-icon sp"></span> </a> <a
+                                        class="carousel-control-next" href="#demo" data-slide="next"> <span
+                                            class="carousel-control-prev-icon sp"></span> </a>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- #call-to-action -->
+        <section id="testimonials" class="wow fadeInUp">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2>Join the NUIS Community</h2>
+                    <p>Connect with experts across domains,build a network and accelerate innovation </p>
+                </div>
+                <div class="owl-carousel testimonials-carousel">
+                    <div class="testimonial-item join-nuih">
+                        <div class="col-md-12 col-lg-12 col-sm-12 ">
+                            <h3 class="pull-left text-align-left padding-0">Experts </h3>
+                            <div class="learn pull-right margin-0" (click)="redirectToUrl('comingsoon')">Follow</div>
+                        </div>
+                        <p class="text-align-left"> Subject matter experts you can connect with on the go </p>
+                        <div class="caru-gallery">
+                            <ul>
+                                <li><img src="./assets/nuih/img/s.png" width="auto" height="auto" alt="" /></li>
+                                <li><img src="./assets/nuih/img/s1.png" width="auto" height="auto" alt="" /></li>
+                                <li><img src="./assets/nuih/img/s2.png" width="auto" height="auto" alt="" /></li>
+                                <li><img src="./assets/nuih/img/s3.png" width="auto" height="auto" alt="" /></li>
+                                <div class="pull-right margin-top15"><a href="javascript:" class="view"
+                                        (click)="redirectToUrl('comingsoon')">View All</a> <i
+                                        class="fa fa-long-arrow-right" (click)="redirectToUrl('comingsoon')"
+                                        aria-hidden="true"></i></div>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="testimonial-item join-nuih">
+                        <div class="col-md-12 col-lg-12 col-sm-12 ">
+                            <h3 class="pull-left text-align-left padding-0">Academia </h3>
+                            <div class="learn pull-right margin-0" (click)="redirectToUrl('comingsoon')">Follow</div>
+                        </div>
+                        <p class="text-align-left"> Academicians you can connect with on the go </p>
+                        <div class="caru-gallery">
+                            <ul>
+                                <li><img src="./assets/nuih/img/s.png" width="auto" height="auto" alt="" /></li>
+                                <li><img src="./assets/nuih/img/s1.png" width="auto" height="auto" alt="" /></li>
+                                <li><img src="./assets/nuih/img/s2.png" width="auto" height="auto" alt="" /></li>
+                                <li><img src="./assets/nuih/img/s3.png" width="auto" height="auto" alt="" /></li>
+                                <div class="pull-right margin-top15"><a href="javascript:" class="view"
+                                        (click)="redirectToUrl('comingsoon')">View All</a> <i
+                                        class="fa fa-long-arrow-right" (click)="redirectToUrl('comingsoon')"
+                                        aria-hidden="true"></i></div>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="testimonial-item join-nuih">
+                        <div class="col-md-12 col-lg-12 col-sm-12 ">
+                            <h3 class="pull-left text-align-left padding-0">Industry </h3>
+                            <div class="learn pull-right margin-0" (click)="redirectToUrl('comingsoon')">Follow</div>
+                        </div>
+                        <p class="text-align-left"> Industry experts you can connect with on the go </p>
+                        <div class="caru-gallery">
+                            <ul>
+                                <li><img src="./assets/nuih/img/s.png" width="auto" height="auto" alt="" /></li>
+                                <li><img src="./assets/nuih/img/s1.png" width="auto" height="auto" alt="" /></li>
+                                <li><img src="./assets/nuih/img/s2.png" width="auto" height="auto" alt="" /></li>
+                                <li><img src="./assets/nuih/img/s3.png" width="auto" height="auto" alt="" /></li>
+                                <div class="pull-right margin-top15"><a href="javascript:"
+                                        (click)="redirectToUrl('comingsoon')" class="view">View All</a> <i
+                                        class="fa fa-long-arrow-right" (click)="redirectToUrl('comingsoon')"
+                                        aria-hidden="true"></i></div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--==========================
+            Our Team Section
+          ============================-->
+        <section id="team" class="wow fadeInUp">
+            <div class="container">
+                <div class="section-header orgn">
+                    <div class="col-md-12 col-lg-12 col-sm-12 pull-left">
+                        <h2 class="orgn-hd">Do you have an innovative solution to a<br>
+
+                            problem that you would like to share with<br>
+                            the world?</h2>
+                        <div class="col-sm-12 col-md-12 col-lg-12 innovate-text">
+                            <div class="col-sm-10 col-md-10 col-lg-10 pull-left">
+                                <p>Post your solutions, get the limelight!</p>
+                            </div>
+                            <div class="col-sm-2 col-md-2 col-lg-2 pull-right ornagebtn"><a class="btn btn-primary "
+                                    href="javascript:" (click)="redirectToUrl('comingsoon')">Share Your Story</a></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- #team -->
+
+        <section id="testimonials" class="wow fadeInUp learn-testimonial-footer-bg">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2>Testimonials</h2>
+
+                </div>
+                <div class="owl-carousel testimonials-carousel">
+                    <div class="testimonial-item imc"> <img src="./assets/nuih/img/pp.png" class=" pro-img" alt=""
+                            width="115">
+                        <div class="col-md-12 col-lg-12"><br>
+                            <br>
+                            <br>
+                            <h5>Ronit Verma</h5>
+                            <p> Citizen</p>
+                            <p>"NUIS has given me a unique opportunity to  to keep in touch with the latest e-learning materials related to urban affairs and it's relevant sectors.<br>
+The NULP micro-site has enabled me and my fellow citizens become more aware about how our city can be transformed by making it more resilient to urban challenges."</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-item imc"> <img src="./assets/nuih/img/s1.png" class=" pro-img" alt=""
+                            width="115">
+                        <div class="col-md-12 col-lg-12"><br>
+                            <br>
+                            <br>
+                            <h5>Rishabh Singhania</h5>
+                            <p> City Official </p>
+                            <p>"As a Smart City official, I'm tasked with accelerating innovation and building capacity in the urban ecosystem. NUIS gives me that opportunity by connecting Communities, Industry, Academia and Government. It enables the development of cities across India and creates an ecosystem of learning, sharing and collaboration for the urban transformation of India."</p>    
+                    </div>
+                    </div>
+                    <div class="testimonial-item imc"> <img src="./assets/nuih/img/s2.png" class=" pro-img" alt=""
+                            width="115">
+                        <div class="col-md-12 col-lg-12"><br>
+                            <br>
+                            <br>
+
+                            <h5>Megha Jain</h5>
+                            <p> MD, Infonet Services Corporation</p>
+                            <p>"Showcasing my product catalogue was never this easy. Thanks to NUIS I am now able to connect directly to Smart City CEOs & other interested stakeholders of my domain.<br>
+Going forward I suggest all my fellow Innovators to come on board to NUIS. You also can solve city civic issues at scale & speed."</p>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!--==========================
+            Contact Section
+          ============================-->
+        <section id="contact" class="wow fadeInUp">
+            <div class="container">
+                <div class="section-header text-center row email">
+                    <div class="col-lg-1 col-md-1 col-sm-1"></div>
+                    <div class="col-lg-5 col-md-5 col-sm-5 pull-left blue-color">
+                        <h3>Never miss a good Opportunity</h3>
+                        <p class="text-align-left">Get our most important updates delivered<br> straight to your inbox
+                        </p>
+                    </div>
+
+                    <div class="col-lg-5 col-md-5 col-sm-5 pull-left">
+                        <!-- <div class="search">
+                                <input type="text" class="form-control input-sm" maxlength="64" placeholder="Search" />
+                                <button type="submit" class="btn2 btn-primary btn-sm">Search</button>
+                            </div> -->
+                        <app-email-input></app-email-input>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </section>
+        <!-- #contact -->
+
+    </main>
+
+    <!--==========================
+    Footer
+  ============================-->
+    <footer id="footer">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg" id="mainNav2">
+                <div class="container"> <a class="navbar-brand js-scroll-trigger" href="http://niua.org"><img
+                            src="./assets/nuih/img/footer-logo.jpg" width="auto" height="auto" alt=""></a>
+              
+                    <div class="blue" id="navbarResponsive">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item ft"> <a href="http://smartcities.gov.in/content/" target="_blank"><img
+                                        src="./assets/nuih/img/smrt.png" width="90px" height="auto" alt="" /></a> </li>
+                            <li class="nav-item ft"> <a href="http://amrut.gov.in/" target="_blank"><img
+                                        src="./assets/nuih/img/amrut.png" width="90px" height="auto" alt="" /></a> </li>
+                            <li class="nav-item ft"> <a href="https://www.hridayindia.in/" target="_blank"><img
+                                        src="./assets/nuih/img/hri.png" width="90px" height="auto" alt="" /></a> </li>
+                            <li class="nav-item ft"> <a href="https://swachhbharatmission.gov.in/sbmcms/index.htm"
+                                    target="_blank"><img src="./assets/nuih/img/bhrt.png" width="90px" height="auto"
+                                        alt="" /></a> </li>
+                            <li class="nav-item ft"><a href="https://pmaymis.gov.in/" target="_blank"><img
+                                        src="./assets/nuih/img/m.png" width="90px" height="auto" alt="" /></a> </li>
+                            <li class="nav-item ft"><a href="https://nulm.gov.in/" target="_blank"><img
+                                        src="./assets/nuih/img/day.png" width="90px" height="auto" alt="" /></a> </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </footer>
+    <!-- #footer -->
+    <!-- <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a> -->
+</div>
